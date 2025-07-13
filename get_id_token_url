@@ -1,0 +1,1 @@
+https://login.microsoftonline.com/{tenant_id}/oauth2/v2.0/authorize?client_id={client_id}&response_type=id_token&response_mode=form_post&scope=openid+profile&state=12345&nonce=678910
