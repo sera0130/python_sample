@@ -17,18 +17,18 @@ conn = mysql.connector.connect(
 cursor = conn.cursor()
 
 # Pythonリスト → UNION ALL 形式に変換
-union_selects = " UNION ALL ".join(
-    f"SELECT {item['pk1']} AS pk1, {item['pk2']} AS pk2, {item['pk3']} AS pk3"
-    for item in key_list
-)
 # union_selects = " UNION ALL ".join(
-#     [
-#         f"SELECT {item['pk1']} AS pk1, "
-#         f"{item['pk2']} AS pk2, "
-#         f"{item['pk3']} AS pk3"
-#         for item in key_list
-#     ]
+#     f"SELECT {item['pk1']} AS pk1, {item['pk2']} AS pk2, {item['pk3']} AS pk3"
+#     for item in key_list
 # )
+union_selects = " UNION ALL ".join(
+    [
+        f"SELECT {item['pk1']} AS pk1, "
+        f"{item['pk2']} AS pk2, "
+        f"{item['pk3']} AS pk3"
+        for item in key_list
+    ]
+)
 
 # INSERTクエリ：存在しない組み合わせのみ挿入
 query = f"""
